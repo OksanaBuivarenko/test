@@ -4,6 +4,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 plugins {
 	java
 	jacoco
+	id("checkstyle")
 	id("org.sonarqube") version "5.1.0.4882"
 	id("org.springframework.boot") version "3.3.4"
 	id("io.spring.dependency-management") version "1.1.6"
@@ -16,6 +17,10 @@ java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(17)
 	}
+}
+
+checkstyle {
+	configFile = file("config/checkstyle/checkstyle.xml")
 }
 
 sonar {
