@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="1" author="Oxana">
+        <tagDatabase tag="create-locations"/>
+    </changeSet>
+
+    <include file="create-changeset-locations-table.xml" relativeToChangelogFile="true"/>
+
+    <changeSet id="2" author="Oxana">
+        <tagDatabase tag="create-events"/>
+    </changeSet>
+
+    <include file="create-changeset-events-table.xml" relativeToChangelogFile="true"/>
+
+    <changeSet id="3" author="Oxana">
+        <tagDatabase tag="create-users-and-roles"/>
+    </changeSet>
+
+    <include file="create-changeset-users-roles-tables.xml" relativeToChangelogFile="true"/>
+
+    <changeSet id="4" author="Oxana">
+        <tagDatabase tag="create-tokens"/>
+    </changeSet>
+
+    <include file="create-changeset-token-table.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

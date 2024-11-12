@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  psql:
+    image: postgres:15.4
+    ports:
+      - "5438:5432"
+    restart: on-failure
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: fintech_db
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+
+volumes:
+  database-data:
