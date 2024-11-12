@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${PG_HOST:localhost:5438}/fintech_db
+    username: ${PG_USER:user}
+    password: ${PG_PASSWORD:password}
+
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-master.xml
+
+url:
+  base_url: https://kudago.com/public-api/v1.4/
+  events: events/
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:someSecretKey}
+    tokenExpirationDefault: ${TOKEN_EXPIRATION-DEFAULT:10m}
+    rememberTokenExpiration: ${REMEMBER_TOKEN_EXPIRATION:30d}
+
+scheduler:
+  tokens-clear: ${TOKENS_CLEAR_CRON:0 0 5 * * *}
+
+mail:
+  host: smtp.mail.ru
+  password: ${SMTP_TOKEN:token}
+  port: 587
+  login: zerone45.helper@mail.ru
+  personal: Support
+
+admin:
+  password: ${ADMIN_PASS:F1^23ghw&}
