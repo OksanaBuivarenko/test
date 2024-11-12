@@ -21,6 +21,7 @@ java {
 
 checkstyle {
 	configFile = file("config/checkstyle/checkstyle.xml")
+	toolVersion = "10.13.0"
 }
 
 sonar {
