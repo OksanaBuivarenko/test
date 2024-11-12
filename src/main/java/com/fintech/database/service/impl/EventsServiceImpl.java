@@ -115,8 +115,7 @@ public class EventsServiceImpl implements EventsService {
 
     @Override
     public List<Events> getEventsListFromEventsDtoList(List<EventsDto> dtoList) {
-        return dtoList.stream().map(dto ->
-                {
+        return dtoList.stream().map(dto -> {
                     Locations locations = locationsService.getLocationsByNameFromDto(dto.getLocation());
                     return eventsMapper.toEntityFromKudagoDto(dto, locations);
                 }
