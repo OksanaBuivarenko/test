@@ -40,9 +40,10 @@ jobs:
         coverageLocations: ${{github.workspace}}/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
 
     - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@v3.1.0
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}     
+      uses: jinguji/sonarcloud-gradle-github-action@v2
+      with:
+        sonar-token: ${{ secrets.SONAR_TOKEN }}  
+      run: gradle sonar -Dsonar.token=sonar-token
 
   dependency-submission:
     runs-on: ubuntu-latest
