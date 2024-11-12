@@ -15,6 +15,6 @@ RUN gradle --no-daemon build
 
 FROM openjdk:17
 
-COPY --from=build-image /test/build/libs/database-1.0-SNAPSHOT-plain.jar /database.jar
+COPY --from=build /test/build/libs/database-1.0-SNAPSHOT-plain.jar /test/database.jar
 
 ENTRYPOINT java -jar database.jar
