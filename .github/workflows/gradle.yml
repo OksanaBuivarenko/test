@@ -39,9 +39,9 @@ jobs:
     #     coverageCommand: ./gradlew jacocoTestReport
     #     coverageLocations: ${{github.workspace}}/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
 
-    # - name: Run static code analysis  
+    - name: Run static code analysis  
     #   run: ./gradlew checkstyleMain checkstyleTest
-    #   # run: gradle sonar -Dsonar.token=${{secrets.SONAR_TOKEN}}
+      run: ./gradlew sonar -Dsonar.token=${{secrets.SONAR_TOKEN}}
 
   dependency-submission:
     runs-on: ubuntu-latest
