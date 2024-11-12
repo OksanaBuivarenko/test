@@ -4,3 +4,5 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/0eaed9b5ec9d2b7147b1/test_coverage)](https://codeclimate.com/github/OksanaBuivarenko/test/test_coverage)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=OksanaBuivarenko_test&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=OksanaBuivarenko_test)
+
+[![Java CI with Gradle](https://github.com/OksanaBuivarenko/test/actions/workflows/gradle.yml/badge.svg)](https://github.com/OksanaBuivarenko/test/actions/workflows/gradle.yml)
