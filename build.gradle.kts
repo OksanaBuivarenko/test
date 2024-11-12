@@ -28,6 +28,7 @@ sonar {
 	properties {
 		property("sonar.projectKey", "OksanaBuivarenko_test")
 		property("sonar.organization", "oksanabuivarenko")
+		property("sonar.host.url", "http://localhost:9000")
 	}
 }
 
