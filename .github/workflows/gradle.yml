@@ -39,11 +39,8 @@ jobs:
         coverageCommand: ./gradlew jacocoTestReport
         coverageLocations: ${{github.workspace}}/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
 
-    - name: Analyze with SonarCloud
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: gradle sonarqube -Dsonar.projectKey=OksanaBuivarenko_test -Dsonar.organization=oksanabuivarenko -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN -Dsonar.coverage.jacoco.xmlReportPaths=./target/site/jacoco/jacoco.xml      
+    - name: SonarCloud Scan        
+      run: gradle sonar -Dsonar.token=${{secrets.SONAR_TOKEN}}
 
   dependency-submission:
     runs-on: ubuntu-latest
