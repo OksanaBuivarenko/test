@@ -27,7 +27,7 @@ java {
 sonar {
 	properties {
 		property("sonar.projectKey", "OksanaBuivarenko_test")
-		property("sonar.host.url", "oksanabuivarenko")
+		property("sonar.organization", "oksanabuivarenko")
 	}
 }
 
