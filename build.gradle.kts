@@ -4,6 +4,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 plugins {
 	java
 	jacoco
+	id("org.sonarqube") version "5.1.0.4882"
 	id("org.springframework.boot") version "3.3.4"
 	id("io.spring.dependency-management") version "1.1.6"
 }
@@ -14,6 +15,13 @@ version = "0.0.1-SNAPSHOT"
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+sonar {
+	properties {
+		property("sonar.projectKey", "OksanaBuivarenko_test")
+		property("sonar.host.url", "oksanabuivarenko")
 	}
 }
 
