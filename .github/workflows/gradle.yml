@@ -30,14 +30,14 @@ jobs:
     - name: Run tests
       run: ./gradlew test
       
-    - name: Publish code coverage
-      uses: paambaati/codeclimate-action@v5.0.0
-      env:
-        CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-        JACOCO_SOURCE_PATH: src/main/java
-      with:
-        coverageCommand: ./gradlew jacocoTestReport
-        coverageLocations: ${{github.workspace}}/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
+    # - name: Publish code coverage
+    #   uses: paambaati/codeclimate-action@v5.0.0
+    #   env:
+    #     CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+    #     JACOCO_SOURCE_PATH: src/main/java
+    #   with:
+    #     coverageCommand: ./gradlew jacocoTestReport
+    #     coverageLocations: ${{github.workspace}}/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
 
     # - name: Run static code analysis  
       # run: ./gradlew checkstyleMain checkstyleTest
