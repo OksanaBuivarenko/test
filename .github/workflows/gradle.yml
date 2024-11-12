@@ -39,9 +39,27 @@ jobs:
     #     coverageCommand: ./gradlew jacocoTestReport
     #     coverageLocations: ${{github.workspace}}/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
 
-    - name: Run static code analysis  
-    #   run: ./gradlew checkstyleMain checkstyleTest
-      run: ./gradlew sonar -Dsonar.token=${{secrets.SONAR_TOKEN}}
+    # - name: Run static code analysis  
+    # #   run: ./gradlew checkstyleMain checkstyleTest
+    #   run: ./gradlew sonar -Dsonar.token=${{secrets.SONAR_TOKEN}}
+
+    - name: Cache SonarQube Cloud packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar
+        restore-keys: ${{ runner.os }}-sonar
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+        restore-keys: ${{ runner.os }}-gradle
+    - name: Build and analyze
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: ./gradlew build sonar --info
 
   dependency-submission:
     runs-on: ubuntu-latest
